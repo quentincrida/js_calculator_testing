@@ -59,9 +59,19 @@ it('should be able to chain multiple operations together', function() {
   calculator.operatorClick("=")
   assert.equal(3, calculator.runningTotal)
 
-})
+}),
 
 
  // - `calculator.clearClick()` - clear the running total without affecting the calculation
+it('should be able to clear the running total without affecting the calculation', function (){
+  calculator.numberClick("10")
+  calculator.operatorClick("+")
+  calculator.numberClick("10")
+  calculator.operatorClick("+")
+  calculator.numberClick("5")
+  calculator.clearClick()
+  calculator.operatorClick("=")
+  assert.equal(20.0, calculator.runningTotal)
 
+})
 });
