@@ -11,6 +11,13 @@ describe('calculator', function () {
     calculator.previousTotal = "1"
     calculator.add("4")
     assert.equal(5.0, calculator.runningTotal)
+  }),
+
+  //can subtract 4 from 7 and get 3
+  it('it can subtract 2 numbers', function(){
+    calculator.previousTotal = "7"
+    calculator.subtract("4")
+    assert.equal(3.0, calculator.runningTotal)
   })
 
 });
