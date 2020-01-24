@@ -18,6 +18,14 @@ describe('calculator', function () {
     calculator.previousTotal = "7"
     calculator.subtract("4")
     assert.equal(3.0, calculator.runningTotal)
+  }),
+
+  // `calculator.multiply()` - multiply 3 by 5 and get 15
+
+  it('it can multiply 2 numbers', function() {
+    calculator.previousTotal = "3"
+    calculator.multiply("5")
+    assert.equal(15.0, calculator.runningTotal)
   })
 
 });
