@@ -34,12 +34,17 @@ describe('calculator', function () {
     calculator.previousTotal = "21"
     calculator.divide("7")
     assert.equal(3.0, calculator.runningTotal)
-  })
-
-
-
+  }),
 
  // - `calculator.numberClick()` - concatenate multiple number button clicks
+
+ it('should be able to join 2 numbers together', function() {
+   calculator.runningTotal = "2"
+   calculator.newTotal = false
+   calculator.numberClick("7")
+   assert.equal(27.0, calculator.runningTotal)
+})
+
  // - `calculator.operatorClick()` - chain multiple operations together
  // - `calculator.clearClick()` - clear the running total without affecting the calculation
 
