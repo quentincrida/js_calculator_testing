@@ -42,8 +42,23 @@ describe('calculator functionality', function() {
    element(by.css('#number1')).click();
    element(by.css('#operator_equals')).click();
    expect(running_total.getAttribute('value')).to.eventually.equal('2')
+}),
 
-})
+it('it should be able to output negative values', function(){
+  element(by.css('#number1')).click();
+  element(by.css('#operator_subtract')).click();
+  element(by.css('#number9')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('-8')
+});
+it('it should be able to output decimal values', function(){
+  element(by.css('#number5')).click();
+  element(by.css('#operator_divide')).click();
+  element(by.css('#number2')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('2.5')
+});
+
  // 5. What does the code do in exceptional circumstances? Specifically, if you divide by zero, what is the effect? Write a test to describe what you'd prefer to happen, and then correct the code to make that test pass (you will need to modify the Calculator model to meet this requirement).
 
 });
