@@ -82,12 +82,17 @@ it('it should be able to output very large values', function(){
   element(by.css('#number9')).click();
   element(by.css('#number9')).click();
   element(by.css('#number9')).click();
-
   element(by.css('#operator_equals')).click();
   expect(running_total.getAttribute('value')).to.eventually.equal('9.9999999998e+21')
 });
 
-
  // 5. What does the code do in exceptional circumstances? Specifically, if you divide by zero, what is the effect? Write a test to describe what you'd prefer to happen, and then correct the code to make that test pass (you will need to modify the Calculator model to meet this requirement).
+it('should return a string when dividing by 0', function() {
+  element(by.css('#number1')).click();
+  element(by.css('#operator_divide')).click();
+  element(by.css('#number0')).click()
+  element(running_total.getAttribute('value')).to.eventually.equal('Error!')
+});
+
 
 });
