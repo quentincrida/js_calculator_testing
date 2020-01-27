@@ -19,12 +19,11 @@ Calculator.prototype.multiply = function(number){
 
 Calculator.prototype.divide = function(number){
   // if any number is divided by 0, what should the runningTotal be?
-      // if (number == 0) {
-      //   this.runningTotal = "Error!";
-      // } else {
-      //   this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
-      // }
-  this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      if (number === 0) {
+      this.runningTotal = "Error";
+      } else {
+          this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      }
 }
 
 Calculator.prototype.numberClick = function(number){

@@ -37,6 +37,7 @@ describe('calculator functionality', function() {
  }),
  // 4. Is the output as expected for a range of numbers (for example, positive, negative, decimals and very large numbers)?
  it('it should be able to output positive values', function(){
+   running_total = element(by.css('#running_total'))
    element(by.css('#number1')).click();
    element(by.css('#operator_add')).click();
    element(by.css('#number1')).click();
@@ -45,6 +46,7 @@ describe('calculator functionality', function() {
 }),
 
 it('it should be able to output negative values', function(){
+  running_total = element(by.css('#running_total'))
   element(by.css('#number1')).click();
   element(by.css('#operator_subtract')).click();
   element(by.css('#number9')).click();
@@ -52,6 +54,7 @@ it('it should be able to output negative values', function(){
   expect(running_total.getAttribute('value')).to.eventually.equal('-8')
 });
 it('it should be able to output decimal values', function(){
+  running_total = element(by.css('#running_total'))
   element(by.css('#number5')).click();
   element(by.css('#operator_divide')).click();
   element(by.css('#number2')).click();
@@ -59,6 +62,7 @@ it('it should be able to output decimal values', function(){
   expect(running_total.getAttribute('value')).to.eventually.equal('2.5')
 });
 it('it should be able to output very large values', function(){
+  running_total = element(by.css('#running_total'))
   element(by.css('#number9')).click();
   element(by.css('#number9')).click();
   element(by.css('#number9')).click();
@@ -87,11 +91,13 @@ it('it should be able to output very large values', function(){
 });
 
  // 5. What does the code do in exceptional circumstances? Specifically, if you divide by zero, what is the effect? Write a test to describe what you'd prefer to happen, and then correct the code to make that test pass (you will need to modify the Calculator model to meet this requirement).
-it('it should return a string when dividing by 0', function() {
+it('should return a string when dividing by 0', function() {
+  running_total = element(by.css('#running_total'))
   element(by.css('#number1')).click();
   element(by.css('#operator_divide')).click();
   element(by.css('#number0')).click()
-  element(running_total.getAttribute('value')).to.eventually.equal('Error!')
+  element(by.css('#operator_equals')).click();
+  element(running_total.getAttribute('value')).to.eventually.equal("Error")
 });
 
 
