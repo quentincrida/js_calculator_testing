@@ -97,7 +97,7 @@ it('should return a string when dividing by 0', function() {
   element(by.css('#operator_divide')).click();
   element(by.css('#number0')).click()
   element(by.css('#operator_equals')).click();
-  element(running_total.getAttribute('value')).to.eventually.equal("Error")
+  expect(running_total.getAttribute('value')).to.eventually.equal("Error")
 });
 
 
